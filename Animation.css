@@ -1,0 +1,352 @@
+/* ══════════════════════════════════════════
+   animations.css — Samir Elnagdi Portfolio
+   ضيف ده بعد style.css في الـ HTML
+   ══════════════════════════════════════════ */
+
+/* ══════════════════════════════════════
+   1. GLITCH EFFECT — Hero Title
+   يعبر عن: IT / Tech
+══════════════════════════════════════ */
+.hero-title .line2 {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title .line2::before,
+.hero-title .line2::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-text-stroke: 2px var(--fg);
+  color: transparent;
+  background: linear-gradient(90deg, var(--acc1), var(--acc4), var(--acc3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0;
+}
+
+.hero-title .line2::before {
+  animation: glitchTop 6s infinite linear;
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  transform: translateX(-3px);
+  color: var(--acc1);
+  -webkit-text-stroke: 0;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+.hero-title .line2::after {
+  animation: glitchBot 6s infinite linear;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  transform: translateX(3px);
+  color: var(--acc3);
+  -webkit-text-stroke: 0;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+@keyframes glitchTop {
+  0%, 88%, 100% { opacity: 0; transform: translateX(-3px); }
+  89%            { opacity: .7; transform: translateX(-6px) skewX(-2deg); }
+  90%            { opacity: .5; transform: translateX(4px); }
+  91%            { opacity: .8; transform: translateX(-3px); }
+  92%            { opacity: 0; }
+}
+
+@keyframes glitchBot {
+  0%, 88%, 100% { opacity: 0; transform: translateX(3px); }
+  89%            { opacity: .7; transform: translateX(6px) skewX(2deg); }
+  90%            { opacity: .5; transform: translateX(-4px); }
+  91%            { opacity: .8; transform: translateX(3px); }
+  92%            { opacity: 0; }
+}
+
+/* ══════════════════════════════════════
+   2. TYPEWRITER — Hero Eyebrow
+   يعبر عن: AI / Tech
+══════════════════════════════════════ */
+.hero-eyebrow .typewriter-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--acc3);
+  width: 0;
+  animation:
+    typeIn 2s steps(30, end) .8s forwards,
+    caretBlink .75s step-end .8s 8;
+}
+
+@keyframes typeIn {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes caretBlink {
+  0%, 100% { border-color: var(--acc3); }
+  50%       { border-color: transparent; }
+}
+
+/* بعد ما الكتابة تخلص، شيل الـ border */
+.hero-eyebrow .typewriter-text.done {
+  border-right: none;
+}
+
+/* ══════════════════════════════════════
+   3. NEON GLOW PULSE — Badges & Roles
+   يعبر عن: Creative / Design
+══════════════════════════════════════ */
+.role {
+  animation: neonPulse 4s ease-in-out infinite;
+}
+.r1 { animation-delay: 0s; }
+.r2 { animation-delay: .6s; }
+.r3 { animation-delay: 1.2s; }
+.r4 { animation-delay: 1.8s; }
+.r5 { animation-delay: 2.4s; }
+
+@keyframes neonPulse {
+  0%, 100% { box-shadow: none; }
+  50%       { box-shadow: 0 0 12px var(--_acc), 0 0 24px var(--_acc); }
+}
+
+/* Neon على الـ Nav Logo */
+.nav-logo {
+  animation: logoGlow 5s ease-in-out infinite alternate;
+}
+@keyframes logoGlow {
+  from { filter: drop-shadow(0 0 4px rgba(255,107,107,.4)); }
+  to   { filter: drop-shadow(0 0 12px rgba(255,224,102,.7)); }
+}
+
+/* Neon على الـ Section Label line */
+.section-label::before {
+  animation: labelLineGlow 2.5s ease-in-out infinite alternate;
+}
+@keyframes labelLineGlow {
+  from { box-shadow: none; width: 16px; }
+  to   { box-shadow: 0 0 8px var(--acc2); width: 24px; }
+}
+
+/* ══════════════════════════════════════
+   4. FLOATING / LEVITATION — Cards
+   يعبر عن: احترافية + ناعم
+══════════════════════════════════════ */
+
+/* About Card */
+.about-card-3d {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* Skill Cards — كل كارد بتأخير مختلف */
+.skill-card:nth-child(1) { animation: floatSoft 5s ease-in-out infinite 0s; }
+.skill-card:nth-child(2) { animation: floatSoft 5s ease-in-out infinite .5s; }
+.skill-card:nth-child(3) { animation: floatSoft 5s ease-in-out infinite 1s; }
+.skill-card:nth-child(4) { animation: floatSoft 5s ease-in-out infinite 1.5s; }
+.skill-card:nth-child(5) { animation: floatSoft 5s ease-in-out infinite 2s; }
+.skill-card:nth-child(6) { animation: floatSoft 5s ease-in-out infinite 2.5s; }
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+
+/* وقف الـ float لما يكون hover عشان ما يتعارضش */
+.skill-card:hover {
+  animation-play-state: paused;
+}
+.about-card-3d:hover {
+  animation-play-state: paused;
+}
+
+/* ══════════════════════════════════════
+   5. GRADIENT SHIFT — Hero Background
+   يعبر عن: Design / Visual
+══════════════════════════════════════ */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(255,107,107,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(0,212,255,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 80%, rgba(167,139,250,.05) 0%, transparent 60%);
+  animation: gradientShift 12s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradientShift {
+  0% {
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 50%, rgba(255,107,107,.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 30%, rgba(0,212,255,.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 50% 80%, rgba(167,139,250,.05) 0%, transparent 60%);
+  }
+  33% {
+    background:
+      radial-gradient(ellipse 70% 70% at 70% 20%, rgba(255,224,102,.06) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 50% at 10% 70%, rgba(52,238,184,.05) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 60% at 60% 60%, rgba(255,107,107,.06) 0%, transparent 60%);
+  }
+  66% {
+    background:
+      radial-gradient(ellipse 90% 50% at 50% 10%, rgba(0,212,255,.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 30% 80%, rgba(167,139,250,.06) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 60% at 80% 60%, rgba(52,238,184,.05) 0%, transparent 60%);
+  }
+  100% {
+    background:
+      radial-gradient(ellipse 60% 90% at 80% 50%, rgba(255,107,107,.06) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 60% at 20% 20%, rgba(255,224,102,.05) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 50% at 40% 90%, rgba(0,212,255,.07) 0%, transparent 60%);
+  }
+}
+
+/* ══════════════════════════════════════
+   6. SCAN LINE — عشان الـ IT Vibe
+   على الـ Exp Cards عند الـ Hover
+══════════════════════════════════════ */
+.exp-card {
+  overflow: hidden;
+}
+.exp-card::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--acc3), transparent);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.exp-card:hover::after {
+  opacity: 1;
+  animation: scanLine .6s ease forwards;
+}
+@keyframes scanLine {
+  from { top: -2px; }
+  to   { top: 110%; }
+}
+
+/* ══════════════════════════════════════
+   7. BORDER TRACE — Work Cards
+   يعبر عن: Design / Creative
+══════════════════════════════════════ */
+.wcard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: linear-gradient(
+    var(--angle, 0deg),
+    transparent 40%,
+    var(--acc2) 50%,
+    transparent 60%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .4s;
+  pointer-events: none;
+  z-index: 2;
+}
+.wcard:hover::before {
+  opacity: 1;
+  animation: borderTrace 1.8s linear infinite;
+}
+@keyframes borderTrace {
+  to { --angle: 360deg; }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ══════════════════════════════════════
+   8. COUNTER ANIMATION — Stats
+   يعبر عن: Data / AI
+══════════════════════════════════════ */
+.stat-num {
+  transition: transform .3s;
+}
+.stat-num:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 20px currentColor;
+}
+
+/* ══════════════════════════════════════
+   9. CONTACT LINKS — Ripple on Hover
+   يعبر عن: Interactive Design
+══════════════════════════════════════ */
+.clink {
+  overflow: hidden;
+  position: relative;
+}
+.clink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,224,102,.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.clink:hover::after {
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════
+   10. NAV LINKS — Underline Slide
+   ناعم ومحترف
+══════════════════════════════════════ */
+.nav-links a {
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--acc2);
+  border-radius: 999px;
+  transition: width .3s cubic-bezier(.16,1,.3,1);
+}
+.nav-links a:hover::after { width: 100%; }
+
+/* ══════════════════════════════════════
+   DISABLE ANIMATIONS — Reduce Motion
+══════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title .line2::before,
+  .hero-title .line2::after,
+  .hero-eyebrow .typewriter-text,
+  .role,
+  .nav-logo,
+  .section-label::before,
+  .about-card-3d,
+  .skill-card,
+  .hero::before,
+  .exp-card::after,
+  .wcard::before {
+    animation: none !important;
+  }
+}
