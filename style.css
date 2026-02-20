@@ -171,7 +171,8 @@ section {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(1rem, 5vw, 3rem);
+   
 }
 
 .section-pad {
@@ -831,6 +832,14 @@ section {
   .filter-row { gap: .35rem; }
   .ftab { font-size: .65rem; padding: .38rem .85rem; }
 }
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.2rem; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+}
+
 /* ══════════════════════════════════════
    CONTACT
 ══════════════════════════════════════ */
@@ -1601,4 +1610,5 @@ footer {
   .lb-proj-nav  { bottom: .5rem; }
   .lb-parr      { font-size: .62rem; padding: .35rem .75rem; }
   .lb-sarr      { display: none; }
+
 }
