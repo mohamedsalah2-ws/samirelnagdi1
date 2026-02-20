@@ -163,3 +163,54 @@ section,
     animation: none !important;
   }
 }
+
+/* ══════════════════════════════════════
+   FIX 9: المحتوى مش لازق في الحافة
+══════════════════════════════════════ */
+.container {
+  padding-left:  clamp(1.2rem, 5vw, 3rem) !important;
+  padding-right: clamp(1.2rem, 5vw, 3rem) !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Section title مش يطلع برا */
+.section-title,
+.contact-title {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Hero padding */
+@media (max-width: 768px) {
+  .hero {
+    padding-left:  1.4rem !important;
+    padding-right: 1.4rem !important;
+  }
+
+  /* Exp cards */
+  .exp-card {
+    margin: 0 !important;
+  }
+
+  /* Filter tabs */
+  .filter-row {
+    padding: 0;
+  }
+
+  /* Works grid */
+  .works-grid {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left:  1.1rem !important;
+    padding-right: 1.1rem !important;
+  }
+  .hero {
+    padding-left:  1.1rem !important;
+    padding-right: 1.1rem !important;
+  }
+}
