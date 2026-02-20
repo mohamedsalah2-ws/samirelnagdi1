@@ -1,0 +1,155 @@
+/* ══════════════════════════════════════════
+   fixes.css — Samir Elnagdi Portfolio
+   ضيفه آخر واحد بعد كل الـ CSS files
+   ══════════════════════════════════════════ */
+
+/* ══════════════════════════════════════
+   FIX 1: Hero Content — مش ظاهر
+   المشكلة: animation-fill-mode:both بيخلي
+   العناصر opacity:0 لو الأنيميشن مش شغال
+══════════════════════════════════════ */
+
+/* Fallback: لو الأنيميشن اتحسبت خلصت، اتأكد إن كل حاجة ظاهرة */
+.hero-eyebrow,
+.hero-title,
+.hero-roles,
+.hero-desc,
+.hero-cta {
+  /* Fallback visibility - يشتغل لو الأنيميشن فشلت */
+  animation-fill-mode: both;
+}
+
+/* بعد ما الأنيميشن تخلص force opacity */
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Safety net — لو الأنيميشن م اشتغلتش أصلاً */
+.hero-eyebrow { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .1s both; }
+.hero-title   { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .2s both; }
+.hero-roles   { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .35s both; }
+.hero-desc    { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .5s both; }
+.hero-cta     { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .65s both; }
+
+/* ══════════════════════════════════════
+   FIX 2: Three.js Canvas — مش يغطي الـ Hero
+══════════════════════════════════════ */
+#three-canvas {
+  z-index: -1 !important; /* تحت كل حاجة */
+  pointer-events: none !important;
+}
+
+/* ══════════════════════════════════════
+   FIX 3: Hero Section — z-index صريح
+══════════════════════════════════════ */
+.hero {
+  position: relative;
+  z-index: 2; /* فوق الـ canvas بفرق واضح */
+  isolation: isolate;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ══════════════════════════════════════
+   FIX 4: Sections عامة — فوق الـ Canvas
+══════════════════════════════════════ */
+#about,
+#experience,
+#skills,
+#works,
+#contact {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+}
+
+/* ══════════════════════════════════════
+   FIX 5: Mobile Hero — padding صح
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh; /* svh أدق من vh على الموبايل */
+    padding-top: calc(var(--nav-h) + 2rem);
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  /* لو الـ Three.js Canvas م اتحملش، ما يتركش مسافة */
+  #three-canvas:not([data-loaded]) {
+    display: none;
+  }
+}
+
+/* ══════════════════════════════════════
+   FIX 6: Reduced Motion — إظهار فوري
+   بدون أنيميشن = بدون تأخير = مشكلة opacity
+══════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow,
+  .hero-title,
+  .hero-roles,
+  .hero-desc,
+  .hero-cta,
+  .scroll-hint {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ══════════════════════════════════════
+   FIX 7: Exp Cards — position:relative
+   عشان الـ scan line animation تشتغل
+══════════════════════════════════════ */
+.exp-card {
+  position: relative;
+}
+
+/* ══════════════════════════════════════
+   FIX 8: Works Grid — fallback لو JS مش شغال
+   الكروت بتبدأ opacity:0 وبتحتاج JS
+   تضيف class "visible"
+══════════════════════════════════════ */
+
+/* لو JS مش شغال، الكروت تظهر بعد 2 ثانية */
+.wcard {
+  animation: fadeInCard 0.6s ease forwards;
+  animation-delay: calc(var(--i, 0) * 0.1s + 0.5s);
+}
+
+/* كل كارت بتأخير مختلف */
+.wcard:nth-child(1) { --i: 0; }
+.wcard:nth-child(2) { --i: 1; }
+.wcard:nth-child(3) { --i: 2; }
+.wcard:nth-child(4) { --i: 3; }
+.wcard:nth-child(5) { --i: 4; }
+.wcard:nth-child(6) { --i: 5; }
+.wcard:nth-child(7) { --i: 6; }
+.wcard:nth-child(8) { --i: 7; }
+.wcard:nth-child(9) { --i: 8; }
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* لو JS أضاف .visible، إلغي الـ CSS animation */
+.wcard.visible {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
