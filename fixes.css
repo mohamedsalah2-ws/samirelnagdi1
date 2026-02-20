@@ -214,3 +214,55 @@ section,
     padding-right: 1.1rem !important;
   }
 }
+
+/* ══════════════════════════════════════
+   FIX 10: Padding أقوى — الكلام بعيد عن الحافة
+   (override بـ !important على كل العناصر)
+══════════════════════════════════════ */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Container الرئيسي */
+.container,
+section > .container {
+  padding-left:  max(1.4rem, env(safe-area-inset-left)) !important;
+  padding-right: max(1.4rem, env(safe-area-inset-right)) !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  box-sizing: border-box !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Hero section نفسها */
+section.hero {
+  padding-left:  max(1.4rem, env(safe-area-inset-left)) !important;
+  padding-right: max(1.4rem, env(safe-area-inset-right)) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+/* About grid — عمود واحد على الموبايل */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* ══ FIX 11: الصورة الفاضية — لو الصورة مش موجودة ══ */
+  .about-visual-wrap {
+    display: none !important; /* لو الصورة مش موجودة يختفي المكان */
+  }
+
+  /* لو الصورة موجودة، يظهر بحجم معقول */
+  .about-visual-wrap:has(img[src]:not([src="images/your-photo.jpg"])),
+  .about-visual-wrap:has(.about-card-3d:not(:empty)) {
+    display: block !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+    aspect-ratio: 3/4 !important;
+    min-height: unset !important;
+  }
+}
