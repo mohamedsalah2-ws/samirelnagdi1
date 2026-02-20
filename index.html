@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>SAMIR ELNAGDI — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+ 
+  <link rel="icon" type="image/svg+xml" href="favicon_s.svg">
+</head>
+
+<body>
+
+<!-- CURSOR (hidden on touch devices) -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- THREE.JS CANVAS -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- ══ NAV ══ -->
+  <nav id="navbar">
+    <div class="nav-logo">Samir Elnagdi</div>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home"       onclick="closeMenu()">Home</a>
+      <a href="#about"      onclick="closeMenu()">About</a>
+      <a href="#experience" onclick="closeMenu()">Experience</a>
+      <a href="#skills"     onclick="closeMenu()">Skills</a>
+      <a href="#works"      onclick="closeMenu()">Works</a>
+      <a href="#contact"    onclick="closeMenu()">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Contact Me ↗</a>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero" id="home">
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span> Open to Opportunities</div>
+    <h1 class="hero-title">
+      <span class="line1">Samir</span>
+      <span class="line2">Elnagdi</span>
+    </h1>
+    <div class="hero-roles">
+      <span class="role r1">💼 Accountant</span>
+      <span class="role r2">🎨 Designer</span>
+      <span class="role r3">🎬 Video Editor</span>
+      <span class="role r4">💻 IT Specialist</span>
+      <span class="role r5">🤖 AI Enthusiast</span>
+    </div>
+    <p class="hero-desc">
+      A <strong>multi-skilled professional</strong> blending financial expertise with creative and
+      technical superpowers — from spreadsheets to Premiere Pro, from networks to AI.
+    </p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="#contact"    class="btn-outline">Get in Touch →</a>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ══ MARQUEE ══ -->
+  <div class="marquee-section" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="m-item">Accounting <span class="m-sep">✦</span></span>
+      <span class="m-item">Graphic Design <span class="m-sep">✦</span></span>
+      <span class="m-item">Video Editing <span class="m-sep">✦</span></span>
+      <span class="m-item">IT Support <span class="m-sep">✦</span></span>
+      <span class="m-item">AI Tools <span class="m-sep">✦</span></span>
+      <span class="m-item">Motion Graphics <span class="m-sep">✦</span></span>
+      <span class="m-item">Network Setup <span class="m-sep">✦</span></span>
+      <span class="m-item">Financial Reports <span class="m-sep">✦</span></span>
+      <!-- duplicate for infinite loop -->
+      <span class="m-item">Accounting <span class="m-sep">✦</span></span>
+      <span class="m-item">Graphic Design <span class="m-sep">✦</span></span>
+      <span class="m-item">Video Editing <span class="m-sep">✦</span></span>
+      <span class="m-item">IT Support <span class="m-sep">✦</span></span>
+      <span class="m-item">AI Tools <span class="m-sep">✦</span></span>
+      <span class="m-item">Motion Graphics <span class="m-sep">✦</span></span>
+      <span class="m-item">Network Setup <span class="m-sep">✦</span></span>
+      <span class="m-item">Financial Reports <span class="m-sep">✦</span></span>
+    </div>
+  </div>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about">
+    <div class="container section-pad">
+      <div class="about-grid">
+
+        <div class="reveal about-visual-wrap">
+          <div class="about-card-3d" id="aboutCard">
+  <div class="about-card-shine"></div>
+  <img src="images/your-photo.jpg" alt="Samir Elnagdi" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);">
+  </div>
+          <div class="about-badge"><strong>5+</strong>Years<br>Experience</div>
+        </div>
+
+        <div class="reveal">
+          <div class="section-label">About Me</div>
+          <div class="section-title">One person.<br><em>Many superpowers.</em></div>
+          <div class="about-text">
+            <p>Hi, I'm <strong>Samir Elnagdi</strong>. I offer a rare fusion of <strong>Finance, Design, IT, and AI</strong>.</p>
+
+<p>From a solid start in <strong>Accounting</strong> to deep-diving into <strong>IT systems and Visual Production</strong>, 
+I’ve spent my career mastering the tools that power modern business. Today, I leverage <strong>AI and Automation</strong> 
+to tie it all together.</p>
+
+<p>Whether it’s a balance sheet or a video edit, I don't just complete tasks—I build 
+<strong>intelligent, creative solutions</strong> that drive growth.</p>
+          </div>
+          <div class="chips">
+            <span class="chip c1">CPA / Accounting</span>
+            <span class="chip c2">Graphic Design</span>
+            <span class="chip c3">Video Editing</span>
+            <span class="chip c4">IT & Networks</span>
+            <span class="chip c5">AI & Automation</span>
+          </div>
+          <div class="stats-row">
+            <div class="stat-item"><div class="stat-num s1">5+</div><div class="stat-lbl">Years Exp</div></div>
+            <div class="stat-item"><div class="stat-num s2">5</div><div class="stat-lbl">Fields</div></div>
+            <div class="stat-item"><div class="stat-num s3">∞</div><div class="stat-lbl">Curiosity</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EXPERIENCE ══ -->
+  <section id="experience">
+    <div class="container section-pad">
+      <div class="section-label reveal">Work History</div>
+      <div class="section-title reveal">Where I've been &<br><em>what I've built.</em></div>
+      <div class="exp-list">
+
+        <div class="exp-card reveal">
+          <div class="exp-ico ico-red">💼</div>
+          <div class="exp-body">
+            <h3>Accountant / Financial Analyst</h3>
+            <div class="exp-where"></div>
+            <div class="exp-desc">Managed full-cycle accounting operations including financial reporting, payroll, tax filing, and budgeting. Ensured compliance with local regulations and delivered accurate monthly/annual financial statements.</div>
+            <div class="exp-tags">
+              <span class="etag">QuickBooks</span><span class="etag">Excel Advanced</span>
+              <span class="etag">Financial Reporting</span><span class="etag">Tax Compliance</span><span class="etag">Budgeting</span>
+            </div>
+          </div>
+          <div class="exp-period">20XX – Present</div>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-ico ico-yellow">🎨</div>
+          <div class="exp-body">
+            <h3>Graphic Designer</h3>
+            <div class="exp-where">🖥️ Freelance </div>
+            <div class="exp-desc">Created visual identities, social media content, marketing materials, and print designs for clients across various industries. Specialised in brand consistency and eye-catching layouts.</div>
+            <div class="exp-tags">
+              <span class="etag">Photoshop</span><span class="etag">Illustrator</span>
+              <span class="etag">InDesign</span><span class="etag">Canva Pro</span><span class="etag">Brand Identity</span>
+            </div>
+          </div>
+          <div class="exp-period">20XX – Present</div>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-ico ico-cyan">🎬</div>
+          <div class="exp-body">
+            <h3>Video Editor / Motion Designer</h3>
+            <div class="exp-where">📹 Freelance  </div>
+            <div class="exp-desc">Edited promotional videos, YouTube content, corporate reels, and social ads. Added motion graphics, colour grading, and sound design to deliver polished final cuts.</div>
+            <div class="exp-tags">
+              <span class="etag">Premiere Pro</span><span class="etag">After Effects</span>
+              <span class="etag">DaVinci Resolve</span><span class="etag">Motion Graphics</span><span class="etag">Color Grading</span>
+            </div>
+          </div>
+          <div class="exp-period">20XX – Present</div>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-ico ico-purple">💻</div>
+          <div class="exp-body">
+            <h3>IT Specialist / Technical Support</h3>
+            <div class="exp-where"></div>
+            <div class="exp-desc">Handled hardware/software troubleshooting, network setup and maintenance, user account management, and IT infrastructure support. Reduced system downtime significantly through proactive monitoring.</div>
+            <div class="exp-tags">
+              <span class="etag">Windows Server</span><span class="etag">Networking</span>
+              <span class="etag">Hardware Repair</span><span class="etag">Active Directory</span><span class="etag">Cybersecurity</span>
+            </div>
+          </div>
+          <div class="exp-period">20XX – Present</div>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-ico ico-green">🤖</div>
+          <div class="exp-body">
+            <h3>AI Tools </h3>
+            <div class="exp-where">⚡ Independent / Consulting</div>
+            <div class="exp-desc">Leverages cutting-edge AI tools to automate repetitive tasks, generate creative content, build intelligent workflows, and stay ahead of the rapidly evolving AI landscape.</div>
+            <div class="exp-tags">
+              <span class="etag">ChatGPT / Claude</span><span class="etag">Midjourney</span>
+              
+            </div>
+          </div>
+          <div class="exp-period">20XX – Present</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SKILLS ══ -->
+  <section id="skills">
+    <div class="container section-pad">
+      <div class="section-label reveal">Expertise</div>
+      <div class="section-title reveal">Skills I bring<br><em>to every project.</em></div>
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="sk-head"><span class="sk-ico">💼</span><h3>Accounting & Finance</h3></div>
+          <div class="sk-row"><div class="sk-top">Financial Reporting<span>Expert</span></div><div class="sk-bar"><div class="sk-fill" data-w="92" style="background:linear-gradient(90deg,var(--acc1),#ff8fa3)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">Excel & Data Analysis<span>Expert</span></div><div class="sk-bar"><div class="sk-fill" data-w="90" style="background:linear-gradient(90deg,var(--acc1),#ff8fa3)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">QuickBooks / ERP<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="80" style="background:linear-gradient(90deg,var(--acc1),#ff8fa3)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">Tax & Compliance<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="78" style="background:linear-gradient(90deg,var(--acc1),#ff8fa3)"></div></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="sk-head"><span class="sk-ico">🎨</span><h3>Design & Branding</h3></div>
+          <div class="sk-row"><div class="sk-top">Photoshop<span>Expert</span></div><div class="sk-bar"><div class="sk-fill" data-w="88" style="background:linear-gradient(90deg,var(--acc2),#fff176)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">Illustrator<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="82" style="background:linear-gradient(90deg,var(--acc2),#fff176)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">Canva Pro<span>Expert</span></div><div class="sk-bar"><div class="sk-fill" data-w="95" style="background:linear-gradient(90deg,var(--acc2),#fff176)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">Brand Identity<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="80" style="background:linear-gradient(90deg,var(--acc2),#fff176)"></div></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="sk-head"><span class="sk-ico">🎬</span><h3>Video & Motion</h3></div>
+          <div class="sk-row"><div class="sk-top">Premiere Pro<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="85" style="background:linear-gradient(90deg,var(--acc3),#80deea)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">After Effects<span>Intermediate</span></div><div class="sk-bar"><div class="sk-fill" data-w="70" style="background:linear-gradient(90deg,var(--acc3),#80deea)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">DaVinci Resolve<span>Intermediate</span></div><div class="sk-bar"><div class="sk-fill" data-w="65" style="background:linear-gradient(90deg,var(--acc3),#80deea)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">Color Grading<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="78" style="background:linear-gradient(90deg,var(--acc3),#80deea)"></div></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="sk-head"><span class="sk-ico">💻</span><h3>IT & Networking</h3></div>
+          <div class="sk-row"><div class="sk-top">Network Setup<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="80" style="background:linear-gradient(90deg,var(--acc4),#b39ddb)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">Windows Server<span>Intermediate</span></div><div class="sk-bar"><div class="sk-fill" data-w="70" style="background:linear-gradient(90deg,var(--acc4),#b39ddb)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">Hardware Support<span>Expert</span></div><div class="sk-bar"><div class="sk-fill" data-w="90" style="background:linear-gradient(90deg,var(--acc4),#b39ddb)"></div></div></div>
+          <div class="sk-row"><div class="sk-top">Cybersecurity Basics<span>Intermediate</span></div><div class="sk-bar"><div class="sk-fill" data-w="65" style="background:linear-gradient(90deg,var(--acc4),#b39ddb)"></div></div></div>
+        </div>
+
+        <div class="skill-card reveal skill-wide">
+          <div class="sk-head"><span class="sk-ico">🤖</span><h3>AI & Automation</h3></div>
+          <div class="sk-double">
+            <div>
+              <div class="sk-row"><div class="sk-top">Prompt Engineering<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="85" style="background:linear-gradient(90deg,var(--acc5),#b9f6ca)"></div></div></div>
+              <div class="sk-row"><div class="sk-top">AI Image Generation<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="82" style="background:linear-gradient(90deg,var(--acc5),#b9f6ca)"></div></div></div>
+            </div>
+            <div>
+              
+              <div class="sk-row"><div class="sk-top">AI Video & Voice<span>Advanced</span></div><div class="sk-bar"><div class="sk-fill" data-w="80" style="background:linear-gradient(90deg,var(--acc5),#b9f6ca)"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="works">
+    <div class="container section-pad">
+      <div class="section-label reveal">Portfolio</div>
+      <div class="section-title reveal">My Work &<br><em>Projects</em></div>
+
+      <div class="filter-row reveal">
+        <button class="ftab active" data-filter="all">All Works</button>
+        <button class="ftab" data-filter="design">🎨 Design</button>
+        <button class="ftab" data-filter="video">🎬 Video</button>
+        <button class="ftab" data-filter="it">💻 IT</button>
+        <button class="ftab" data-filter="account">💼 Accounting</button>
+        <button class="ftab" data-filter="ai">🤖 AI</button>
+      </div>
+
+      <div class="works-grid" id="worksGrid">
+
+        <!-- ══════════════════════════════════════
+             مشروع ٩ — AI Campaign (AI)
+             فيديو + صور
+        ═══════════════════════════════════════ -->
+        <div class="wcard reveal"
+     data-type="ai"
+     data-title="AI Generated Campaign"
+     data-desc="Full visual campaign using Midjourney + Photoshop"
+     data-videos="videos/ai-campaign.mp4,videos/ai-campaign1.mp4,videos/ai-campaign2.mp4,videos/ai-campaign3.mp4,videos/ai-campaign4.mp4,videos/ai-campaign5.mp4,videos/ai-campaign6.mp4"
+     data-gallery="images/campaign-1.jpg,images/campaign-2.jpg,images/campaign-3.jpg"
+     onclick="openLb(this)">
+  <div class="wcard-thumb">
+    <video src="videos/ai-campaign.mp4" class="wcard-vid"
+           muted loop playsinline           onmouseleave="this.pause();this.currentTime=0"
+           onerror="this.parentElement.innerHTML='<div class=wcard-fallback>✨</div>'">
+    </video>
+    <div class="wcard-play-ico">
+      <svg viewBox="0 0 24 24" fill="white" width="20"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+    <div class="wcard-count">
+      <svg viewBox="0 0 16 16" fill="currentColor" width="11"><path d="M2 2h7v7H2V2zm0 5H1V1h8v1H2v5zM3 3h5v5H3V3z"/></svg>
+      8
+    </div>
+  </div>
+  <div class="wcard-overlay"><h3>AI Campaign</h3><p> videos +  images</p></div>
+  <div class="wcard-bottom">
+    <div><h3>AI Campaign</h3><p>Brand Client · 2025</p></div>
+    <span class="wbadge wb-ai">AI</span>
+  </div>
+</div>
+
+        <!-- ══════════════════════════════════════
+             مشروع ١ — Brand Identity (Design)
+             صور متعددة في الـ gallery
+        ═══════════════════════════════════════ -->
+        <div class="wcard reveal"
+             data-type="design"
+             data-title="Brand Identity — Startup X"
+             data-desc="Logo, color palette & full brand guide"
+             data-gallery="images/brand-1.jpg,images/brand-2.jpg,images/brand-3.jpg,images/brand-4.jpg,images/brand-5.jpg,images/brand-6.jpg,images/brand-7.jpg,images/brand-8.jpg"
+             onclick="openLb(this)">
+          <div class="wcard-thumb">
+            <img src="images/brand-1.jpg" alt="Brand Identity" class="wcard-img"
+                 onerror="this.parentElement.innerHTML='<div class=wcard-fallback>🎨</div>'">
+                 
+            <div class="wcard-count">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="11"><path d="M2 2h7v7H2V2zm0 5H1V1h8v1H2v5zM3 3h5v5H3V3z"/></svg>
+              4
+            </div>
+          </div>
+          <div class="wcard-overlay"><h3>Brand Identity (Design)</h3><p>Brand Identity (Design)</p></div>
+          <div class="wcard-bottom">
+            <div><h3>Brand Identity (Design)</h3><p>Brand Identity (Design)</p></div>
+            <span class="wbadge wb-design">Design</span>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             مشروع ٢ — Promotional Reel (Video)
+             فيديو محلي + صور
+        ═══════════════════════════════════════ -->
+        <div class="wcard reveal"
+             data-type="video"
+             data-title="Promotional Reel"
+             data-desc="Corporate promotional video"
+             data-video="videos/promo-reel.mp4,videos/promo-reel1.mp4,videos/promo-reel2.mp4,videos/promo-reel3.mp4,videos/promo-reel4.mp4"
+             data-gallery="images/promo-1.jpg,images/promo-2.jpg"
+             onclick="openLb(this)">
+          <div class="wcard-thumb">
+            <video src="videos/promo-reel1.mp4" class="wcard-vid"
+                   muted loop playsinline
+                   onmouseenter="this.play()"
+                   onmouseleave="this.pause();this.currentTime=0"
+                   onerror="this.parentElement.innerHTML='<div class=wcard-fallback>🎬</div>'">
+            </video>
+            <div class="wcard-play-ico">
+              <svg viewBox="0 0 24 24" fill="white" width="20"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="wcard-count">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="11"><path d="M2 2h7v7H2V2zm0 5H1V1h8v1H2v5zM3 3h5v5H3V3z"/></svg>
+              3
+            </div>
+          </div>
+          <div class="wcard-overlay"><h3>Promotional Reel</h3><p>videos +  images</p></div>
+          <div class="wcard-bottom">
+            <div><h3>Promotional Reel</h3><p>Corporate ·</p></div>
+            <span class="wbadge wb-video">Video</span>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             مشروع ٣ — Social Media Pack (Design)
+        ═══════════════════════════════════════ -->
+        <div class="wcard reveal"
+             data-type="design"
+             data-title="Social Media Pack"
+             data-desc="30 templates for Instagram & Facebook"
+             data-gallery="images/social-1.jpg,images/social-2.jpg,images/social-3.jpg,images/social-4.jpg,images/social-5.jpg"
+             onclick="openLb(this)">
+          <div class="wcard-thumb">
+            <img src="images/social-1.jpg" alt="Social Media Pack" class="wcard-img"
+                 onerror="this.parentElement.innerHTML='<div class=wcard-fallback>📱</div>'">
+            <div class="wcard-count">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="11"><path d="M2 2h7v7H2V2zm0 5H1V1h8v1H2v5zM3 3h5v5H3V3z"/></svg>
+              5
+            </div>
+          </div>
+          <div class="wcard-overlay"><h3>Social Media Pack</h3><p>30 templates · 5 images</p></div>
+          <div class="wcard-bottom">
+            <div><h3>Social Media Pack</h3><p>E-commerce · 2023</p></div>
+            <span class="wbadge wb-design">Design</span>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             مشروع ٤ — Motion Graphics (Video)
+             فيديو فقط
+        ═══════════════════════════════════════ -->
+        <div class="wcard reveal"
+             data-type="video"
+             data-title="Motion Graphics Intro"
+             data-desc="Animated logo intro"
+             data-video="videos/motion-intro.mp4"
+             onclick="openLb(this)">
+          <div class="wcard-thumb">
+            <video src="videos/motion-intro.mp4" class="wcard-vid"
+                   muted loop playsinline
+                   onmouseenter="this.play()"
+                   onmouseleave="this.pause();this.currentTime=0"
+                   onerror="this.parentElement.innerHTML='<div class=wcard-fallback>🎬</div>'">
+            </video>
+            <div class="wcard-play-ico">
+              <svg viewBox="0 0 24 24" fill="white" width="20"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="wcard-overlay"><h3>Motion Graphics</h3><p>Animated intro</p></div>
+          <div class="wcard-bottom">
+            <div><h3>Motion Graphics Intro</h3><p>YouTube · 2024</p></div>
+            <span class="wbadge wb-video">Video</span>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             مشروع ٥ — AI Automation (AI)
+        ═══════════════════════════════════════ -->
+        <div class="wcard reveal"
+             data-type="ai"
+             data-title="AI Automation Workflow"
+             data-desc="End-to-end automation using Make + ChatGPT"
+             data-gallery="images/ai-1.jpg,images/ai-2.jpg,images/ai-3.jpg"
+             onclick="openLb(this)">
+          <div class="wcard-thumb">
+            <img src="images/ai-1.jpg" alt="AI Automation" class="wcard-img"
+                 onerror="this.parentElement.innerHTML='<div class=wcard-fallback>🤖</div>'">
+            <div class="wcard-count">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="11"><path d="M2 2h7v7H2V2zm0 5H1V1h8v1H2v5zM3 3h5v5H3V3z"/></svg>
+              3
+            </div>
+          </div>
+          <div class="wcard-overlay"><h3>AI Automation</h3><p>Make + ChatGPT · 3 images</p></div>
+          <div class="wcard-bottom">
+            <div><h3>AI Automation</h3><p>Personal Project · 2025</p></div>
+            <span class="wbadge wb-ai">AI</span>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             مشروع ٦ — Network Setup (IT)
+        ═══════════════════════════════════════ -->
+        <div class="wcard reveal"
+             data-type="it"
+             data-title="Network Infrastructure Setup"
+             data-desc="Full office network design for 50 nodes"
+             data-gallery="images/network-1.jpg,images/network-2.jpg,images/network-3.jpg"
+             onclick="openLb(this)">
+          <div class="wcard-thumb">
+            <img src="images/network-1.jpg" alt="Network Setup" class="wcard-img"
+                 onerror="this.parentElement.innerHTML='<div class=wcard-fallback>🔧</div>'">
+            <div class="wcard-count">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="11"><path d="M2 2h7v7H2V2zm0 5H1V1h8v1H2v5zM3 3h5v5H3V3z"/></svg>
+              3
+            </div>
+          </div>
+          <div class="wcard-overlay"><h3>Network Infrastructure</h3><p>50-node setup · 3 images</p></div>
+          <div class="wcard-bottom">
+            <div><h3>Office Network Setup</h3><p>Corporate · 2023</p></div>
+            <span class="wbadge wb-it">IT</span>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             مشروع ٧ — Financial Dashboard (Accounting)
+        ═══════════════════════════════════════ -->
+        <div class="wcard reveal"
+             data-type="account"
+             data-title="Financial Dashboard"
+             data-desc="Excel-based financial reporting system for SME"
+             data-gallery="images/finance-1.jpg,images/finance-2.jpg,images/finance-3.jpg"
+             onclick="openLb(this)">
+          <div class="wcard-thumb">
+            <img src="images/finance-1.jpg" alt="Financial Dashboard" class="wcard-img"
+                 onerror="this.parentElement.innerHTML='<div class=wcard-fallback>📊</div>'">
+            <div class="wcard-count">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="11"><path d="M2 2h7v7H2V2zm0 5H1V1h8v1H2v5zM3 3h5v5H3V3z"/></svg>
+              3
+            </div>
+          </div>
+          <div class="wcard-overlay"><h3>Financial Dashboard</h3><p>Excel system · 3 images</p></div>
+          <div class="wcard-bottom">
+            <div><h3>Financial Dashboard</h3><p>SME Client · 2024</p></div>
+            <span class="wbadge wb-account">Accounting</span>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             مشروع ٨ — Event Poster (Design)
+        ═══════════════════════════════════════ -->
+        <div class="wcard reveal"
+             data-type="design"
+             data-title="Event Poster Design"
+             data-desc="Print & digital poster for annual conference"
+             data-gallery="images/poster-1.jpg,images/poster-2.jpg,images/poster-3.jpg"
+             onclick="openLb(this)">
+          <div class="wcard-thumb">
+            <img src="images/poster-1.jpg" alt="Event Poster" class="wcard-img"
+                 onerror="this.parentElement.innerHTML='<div class=wcard-fallback>🖼️</div>'">
+            <div class="wcard-count">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="11"><path d="M2 2h7v7H2V2zm0 5H1V1h8v1H2v5zM3 3h5v5H3V3z"/></svg>
+              3
+            </div>
+          </div>
+          <div class="wcard-overlay"><h3>Event Poster</h3><p>Annual Conference · 3 images</p></div>
+          <div class="wcard-bottom">
+            <div><h3>Event Poster</h3><p>Conference · 2024</p></div>
+            <span class="wbadge wb-design">Design</span>
+          </div>
+        </div>
+
+        
+
+        
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact">
+    <div class="container section-pad">
+      <div class="contact-grid">
+
+        <div class="reveal">
+          <div class="section-label">Get In Touch</div>
+          <h2 class="contact-title">Let's work on<br>something <em>great.</em></h2>
+          <p class="contact-desc">Whether you need an accountant, a designer, a video editor, IT help, or an AI consultant — or all five — I'm just a message away.</p>
+          <div class="clinks">
+            <a href="#" class="clink">
+              <span>✉️</span>
+              <div><span><span class="__cf_email__" data-cfemail="f98a9894908bb99c81989489959cd79a9694">[email&#160;protected]</span></span><span class="clink-lbl">Email — Best way to reach me</span></div>
+            </a>
+            <a href="https://wa.me/971559109553" class="clink" target="_blank">
+            <span>📱</span>
+             <div><span>+971 55 910 9553</span><span class="clink-lbl">WhatsApp / Phone</span></div>
+             </a>
+  
+            <a href="#" class="clink">
+              <span>💼</span>
+              <div><span>account</span><span class="clink-lbl">LinkedIn — Connect with me</span></div>
+            </a>
+          </div>
+        </div>
+
+        </div>
+    </div>
+  </section>
+
+    
+
+  <footer>
+  <div class="f-left">
+    <div class="f-logo">Samir Elnagdi</div>
+    <div class="f-tagline">Accountant · Designer · Video Editor · IT · AI</div>
+  </div>
+
+  <div class="f-center">
+    <div class="f-copy">© 2026 Samir Elnagdi · Built with passion 🚀</div>
+    <div class="f-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#works">Works</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <div class="f-right">
+    <div class="f-socials-label">Find me on</div>
+    <div class="f-socials">
+      <a href="https://www.facebook.com/share/18MfGSP13P/" target="_blank" class="f-social-btn fs-facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://x.com/samiranter" target="_blank" class="f-social-btn fs-twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/samiranter?igsh=MW82NTdpMWlzOTZyMg==" target="_blank" class="f-social-btn fs-instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@samiranter2?_r=1&_t=ZS-940p6ZZZaNx" target="_blank" class="f-social-btn fs-tiktok"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- ══ LIGHTBOX ══ -->
+  <div class="lightbox" id="lightbox" onclick="closeLbOut(event)">
+    <div class="lb-inner">
+
+      <!-- Media area -->
+      <div id="lbMedia"></div>
+
+      <!-- Dots (slides داخل المشروع) -->
+      <div class="lb-dots-wrap" id="lbDots"></div>
+
+      <!-- Caption + counter + close -->
+      <div class="lb-caption">
+        <div class="lb-caption-text">
+          <h3 id="lbTitle"></h3>
+          <p id="lbDesc"></p>
+        </div>
+        <div class="lb-caption-right">
+          <span class="lb-counter" id="lbCounter"></span>
+          <button class="lb-close" onclick="closeLb()" aria-label="Close">✕</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Slide arrows (داخل المشروع) -->
+    <div class="lb-slide-nav">
+      <button class="lb-sarr" onclick="prevSlide(event)" aria-label="Prev slide">‹</button>
+      <button class="lb-sarr" onclick="nextSlide(event)" aria-label="Next slide">›</button>
+    </div>
+
+    <!-- Project arrows (انتقال بين المشاريع) -->
+    <div class="lb-proj-nav">
+      <button class="lb-parr" onclick="navLb(-1)" aria-label="Prev project" title="المشروع السابق">← Prev</button>
+      <button class="lb-parr" onclick="navLb(1)"  aria-label="Next project" title="المشروع التالي">Next →</button>
+    </div>
+  </div>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+<script src="script.js"></script>
+</body>
+</html>
