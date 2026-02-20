@@ -1,155 +1,165 @@
 /* ══════════════════════════════════════════
-   fixes.css — Samir Elnagdi Portfolio
+   fixes.css v2 — Samir Elnagdi Portfolio
    ضيفه آخر واحد بعد كل الـ CSS files
    ══════════════════════════════════════════ */
 
 /* ══════════════════════════════════════
-   FIX 1: Hero Content — مش ظاهر
-   المشكلة: animation-fill-mode:both بيخلي
-   العناصر opacity:0 لو الأنيميشن مش شغال
-══════════════════════════════════════ */
-
-/* Fallback: لو الأنيميشن اتحسبت خلصت، اتأكد إن كل حاجة ظاهرة */
-.hero-eyebrow,
-.hero-title,
-.hero-roles,
-.hero-desc,
-.hero-cta {
-  /* Fallback visibility - يشتغل لو الأنيميشن فشلت */
-  animation-fill-mode: both;
-}
-
-/* بعد ما الأنيميشن تخلص force opacity */
-@keyframes heroIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Safety net — لو الأنيميشن م اشتغلتش أصلاً */
-.hero-eyebrow { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .1s both; }
-.hero-title   { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .2s both; }
-.hero-roles   { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .35s both; }
-.hero-desc    { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .5s both; }
-.hero-cta     { animation: heroIn .8s cubic-bezier(.16,1,.3,1) .65s both; }
-
-/* ══════════════════════════════════════
-   FIX 2: Three.js Canvas — مش يغطي الـ Hero
+   FIX 1: Three.js Canvas — تحت كل حاجة
 ══════════════════════════════════════ */
 #three-canvas {
-  z-index: -1 !important; /* تحت كل حاجة */
+  z-index: -1 !important;
   pointer-events: none !important;
 }
 
 /* ══════════════════════════════════════
-   FIX 3: Hero Section — z-index صريح
+   FIX 2: Sections فوق الـ Canvas
 ══════════════════════════════════════ */
+section,
+#about, #experience, #skills, #works, #contact {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+}
 .hero {
   position: relative;
-  z-index: 2; /* فوق الـ canvas بفرق واضح */
-  isolation: isolate;
-}
-
-.hero > * {
-  position: relative;
-  z-index: 2;
-}
-
-/* ══════════════════════════════════════
-   FIX 4: Sections عامة — فوق الـ Canvas
-══════════════════════════════════════ */
-#about,
-#experience,
-#skills,
-#works,
-#contact {
-  position: relative;
   z-index: 2;
   isolation: isolate;
 }
 
 /* ══════════════════════════════════════
-   FIX 5: Mobile Hero — padding صح
+   FIX 3: Hero Content — دايماً ظاهر
+   بدل fill-mode:both اللي بيخلي
+   المحتوى مخفي لو الأنيميشن فشلت
 ══════════════════════════════════════ */
-@media (max-width: 768px) {
-  .hero {
-    min-height: 100svh; /* svh أدق من vh على الموبايل */
-    padding-top: calc(var(--nav-h) + 2rem);
-    padding-bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-  }
-
-  /* لو الـ Three.js Canvas م اتحملش، ما يتركش مسافة */
-  #three-canvas:not([data-loaded]) {
-    display: none;
-  }
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* كل عنصر يبدأ opacity:0 ويتحرك لـ 1 */
+.hero-eyebrow { opacity: 0; animation: heroIn .7s cubic-bezier(.16,1,.3,1) .1s forwards; }
+.hero-title   { opacity: 0; animation: heroIn .7s cubic-bezier(.16,1,.3,1) .25s forwards; }
+.hero-roles   { opacity: 0; animation: heroIn .7s cubic-bezier(.16,1,.3,1) .4s forwards; }
+.hero-desc    { opacity: 0; animation: heroIn .7s cubic-bezier(.16,1,.3,1) .55s forwards; }
+.hero-cta     { opacity: 0; animation: heroIn .7s cubic-bezier(.16,1,.3,1) .7s forwards; }
+.scroll-hint  { opacity: 0; animation: fadeIn .8s ease 1.2s forwards; }
 
 /* ══════════════════════════════════════
-   FIX 6: Reduced Motion — إظهار فوري
-   بدون أنيميشن = بدون تأخير = مشكلة opacity
+   FIX 4: Reveal Elements
+   CSS fallback لو JS مش شغال
 ══════════════════════════════════════ */
-@media (prefers-reduced-motion: reduce) {
-  .hero-eyebrow,
-  .hero-title,
-  .hero-roles,
-  .hero-desc,
-  .hero-cta,
-  .scroll-hint {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* ══════════════════════════════════════
-   FIX 7: Exp Cards — position:relative
-   عشان الـ scan line animation تشتغل
-══════════════════════════════════════ */
-.exp-card {
-  position: relative;
-}
-
-/* ══════════════════════════════════════
-   FIX 8: Works Grid — fallback لو JS مش شغال
-   الكروت بتبدأ opacity:0 وبتحتاج JS
-   تضيف class "visible"
-══════════════════════════════════════ */
-
-/* لو JS مش شغال، الكروت تظهر بعد 2 ثانية */
-.wcard {
-  animation: fadeInCard 0.6s ease forwards;
-  animation-delay: calc(var(--i, 0) * 0.1s + 0.5s);
-}
-
-/* كل كارت بتأخير مختلف */
-.wcard:nth-child(1) { --i: 0; }
-.wcard:nth-child(2) { --i: 1; }
-.wcard:nth-child(3) { --i: 2; }
-.wcard:nth-child(4) { --i: 3; }
-.wcard:nth-child(5) { --i: 4; }
-.wcard:nth-child(6) { --i: 5; }
-.wcard:nth-child(7) { --i: 6; }
-.wcard:nth-child(8) { --i: 7; }
-.wcard:nth-child(9) { --i: 8; }
-
-@keyframes fadeInCard {
-  from { opacity: 0; transform: translateY(24px); }
+@keyframes revealFallback {
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* لو JS أضاف .visible، إلغي الـ CSS animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+  /* لو JS مش شغال يظهر بعد ثانية */
+  animation: revealFallback .8s ease 1s forwards;
+}
+.reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: none !important;
+}
+
+/* ══════════════════════════════════════
+   FIX 5: Work Cards
+══════════════════════════════════════ */
+.wcard {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: revealFallback .8s ease forwards;
+}
+.wcard:nth-child(1){ animation-delay: .8s; }
+.wcard:nth-child(2){ animation-delay: .9s; }
+.wcard:nth-child(3){ animation-delay:1.0s; }
+.wcard:nth-child(4){ animation-delay:1.1s; }
+.wcard:nth-child(5){ animation-delay:1.2s; }
+.wcard:nth-child(6){ animation-delay:1.3s; }
+.wcard:nth-child(7){ animation-delay:1.4s; }
+.wcard:nth-child(8){ animation-delay:1.5s; }
+.wcard:nth-child(9){ animation-delay:1.6s; }
+
 .wcard.visible {
-  animation: none;
-  opacity: 1;
-  transform: none;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+.wcard.visible:hover {
+  transform: translateY(-10px) rotateX(2deg) !important;
+  box-shadow: 0 28px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.14);
+}
+
+/* ══════════════════════════════════════
+   FIX 6: Contact Links — HTML عندك
+   <span> مش .clink-icon class
+══════════════════════════════════════ */
+.clink > span:first-child {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  transition: background .25s, border-color .25s;
+}
+.clink:hover > span:first-child {
+  background: rgba(255,224,102,.1);
+  border-color: var(--acc2);
+}
+.clink > div {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  overflow: hidden;
+}
+.clink > div > span:first-child {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.clink-lbl {
+  font-size: .64rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  letter-spacing: .5px;
+}
+
+/* ══════════════════════════════════════
+   FIX 7: Mobile
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    padding-top: calc(var(--nav-h) + 2rem);
+  }
+}
+
+/* ══════════════════════════════════════
+   FIX 8: Reduced Motion — كل حاجة تظهر
+══════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow, .hero-title, .hero-roles,
+  .hero-desc, .hero-cta, .scroll-hint,
+  .reveal, .wcard {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
