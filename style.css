@@ -4,17 +4,17 @@
 
 /* ── VARIABLES ── */
 :root {
-  --bg:      #0F0F0F;
-  --surf:    #1A1A1A;
-  --surf2:   #242424;
-  --border:  rgba(255,255,255,0.08);
-  --fg:      #F5F5F5;
-  --muted:   #666666;
-  --acc1:    #FF3366;
-  --acc2:    #FFD60A;
-  --acc3:    #00F5D4;
-  --acc4:    #7B61FF;
-  --acc5:    #00E676;
+  --bg:      #010B18;
+  --surf:    #051525;
+  --surf2:   #0A2035;
+  --border:  rgba(255,255,255,0.07);
+  --fg:      #E8F4FF;
+  --muted:   #4A6A8A;
+  --acc1:    #FF6B6B;
+  --acc2:    #FFE066;
+  --acc3:    #00D4FF;
+  --acc4:    #A78BFA;
+  --acc5:    #34EEB8;
 
   --font-display: 'Bebas Neue', sans-serif;
   --font-body:    'Cabinet Grotesk', sans-serif;
